@@ -50,7 +50,7 @@ public:
 	{
 	}
 private:
-	bool compare(Sc a, Sc b){
+	bool compare_(const Sc &a, const Sc &b){
 		//if(a.first.compare(b.first) == 0)
 		//	return ;
 		if (a.first.size() == b.first.size())
@@ -132,7 +132,7 @@ private:
 		recorreInOrder(raiz->getIzquierda1(), false, 0);
 		recorreInOrder(raiz->getDerecha0(), true, 0);
 		//generar la lista de chars con sus valores en cod huffman
-		for (int i = 0; i < codHuff.size(); i++) {
+		for (int i = 0; i < (int)codHuff.size(); i++) {
 			//el caracter sera el indice
 			int idx = (int)codHuff[i].second;
 			cout << idx << ": " << codHuff[i].second << endl;
@@ -145,14 +145,14 @@ private:
 	vcS ProcesarFrecuencias(string _archivo){
 
 		archivo = _archivo;
-		ifstream input;
-		input.open(archivo.c_str(), ifstream::in);
+		ifstream *input=new ifstream();
+		input->open(archivo.c_str(), ifstream::in);
 		frec = new int[258];
-		memset(frec, 0, sizeof(frec)); //INICIO FRECUENCIAS CON 0
+		memset(frec, 0, 258 * sizeof(int)); //INICIO FRECUENCIAS CON 0
 
 		string read;
 		bool first = true;
-		while (getline(input, read)){
+		while (getline(*input, read)){
 			//por cada linea procesar cada caracter ASCII 255
 			if (first){
 
@@ -170,7 +170,7 @@ private:
 
 
 		}
-		input.close();
+		input->close();
 		//se inicia la cola antes del ordenamiento
 		ColaPrioridad = cola();
 		return OrdenaFrecuencias(ColaPrioridad);
@@ -178,11 +178,11 @@ private:
 	private:
 	vcS OrdenaFrecuencias(cola &ColaPrioridad){
 		vcS resultado = vcS();
-		resultado.push_back(string("Frecuencias:\n "));
+		
 
 		for (int i = 0; i < 256; i++)
 		{
-			if (frec[i] != 0){
+			if (frec[i] > 0){
 				stringstream ss;
 				//cout << (char)i << ": " << frec[i] << " " << endl;
 				ss << (char)i << ": " << frec[i];
@@ -201,6 +201,7 @@ private:
 			ColaPrioridad.push(iN(frec[SALTOLINEA], new Nodo(ic(frec[SALTOLINEA], '\n'))));
 		}
 		//cout << endl;
+		resultado.push_back(string("Frecuencias:\n "));
 		return resultado;
 	}
 	public:
@@ -214,8 +215,8 @@ private:
 			RecorrerArbol(raiz);
 			//Mostrar Codigo Huffman
 			//4)Ordenar el codigo Huffman para mostrar
-			sort(codHuff.begin(), codHuff.end(), compare);
-			for (int i = 0; i < codHuff.size(); i++) {
+			std::sort(codHuff.begin(), codHuff.end(), std::bind(&Huffman::compare_,this,std::placeholders::_1,std::placeholders::_2));
+			for (int i = 0; i < (int)codHuff.size(); i++) {
 				string cha_s = ""; cha_s += codHuff[i].second;
 				stringstream ss;
 				//cout << codHuff[i].first << " : " << (cha_s[0] == '\n' ? "*S" : (cha_s[0] == ' ' ? "*E" : cha_s)) << endl;
@@ -227,7 +228,7 @@ private:
 			ofstream out("comprimido.txt", ofstream::out);
 			ifstream input(archivo.c_str(), ifstream::in);
 			//5)escribir cabecera del nuevo archivo
-			for (int i = 0; i < codHuffpConsultas.size(); i++) {
+			for (int i = 0; i < (int)codHuffpConsultas.size(); i++) {
 				/*if(i == 10) //si es salto de linea imprime *S
 				out<<"*S";
 				else if(i == 32)//si es espacio imprime *E
@@ -297,9 +298,9 @@ private:
 		//sliding window technique para obtener los datos
 		string cod;
 		stringstream textoDescomprimido;
-		for (int i = 0; i < buff.size();) {
+		for (int i = 0; i < (int)buff.size();) {
 			cod = "";
-			for (int j = 0; i + j < buff.size(); j++) {
+			for (int j = 0; i + j <(int) buff.size(); j++) {
 				cod += buff[i + j];
 				it = DecodeHuffman.find(cod);
 				if (it == DecodeHuffman.end()){

@@ -84,6 +84,9 @@ namespace AlgoritmodeHuffman {
 
 
 	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::SplitContainer^  splitContainer3;
+	private: System::Windows::Forms::SplitContainer^  splitContainer1;
+	private: System::Windows::Forms::SplitContainer^  splitContainer2;
 
 
 
@@ -134,10 +137,25 @@ namespace AlgoritmodeHuffman {
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->tbRutaDesencriptar = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->splitContainer2 = (gcnew System::Windows::Forms::SplitContainer());
+			this->splitContainer3 = (gcnew System::Windows::Forms::SplitContainer());
 			this->panel1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
+			this->splitContainer1->Panel1->SuspendLayout();
+			this->splitContainer1->Panel2->SuspendLayout();
+			this->splitContainer1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer2))->BeginInit();
+			this->splitContainer2->Panel1->SuspendLayout();
+			this->splitContainer2->Panel2->SuspendLayout();
+			this->splitContainer2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer3))->BeginInit();
+			this->splitContainer3->Panel1->SuspendLayout();
+			this->splitContainer3->Panel2->SuspendLayout();
+			this->splitContainer3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// openFileDialog1
@@ -201,12 +219,9 @@ namespace AlgoritmodeHuffman {
 			// tabPage1
 			// 
 			this->tabPage1->AutoScroll = true;
+			this->tabPage1->Controls->Add(this->splitContainer3);
 			this->tabPage1->Controls->Add(this->listBox5);
 			this->tabPage1->Controls->Add(this->btnCodificar);
-			this->tabPage1->Controls->Add(this->listBox4);
-			this->tabPage1->Controls->Add(this->listBox3);
-			this->tabPage1->Controls->Add(this->listBox2);
-			this->tabPage1->Controls->Add(this->listBox1);
 			this->tabPage1->Controls->Add(this->btnProcesarFrecuencias);
 			this->tabPage1->Controls->Add(this->button2);
 			this->tabPage1->Controls->Add(this->tbRutaEncriptar);
@@ -243,38 +258,42 @@ namespace AlgoritmodeHuffman {
 			// 
 			// listBox4
 			// 
+			this->listBox4->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->listBox4->FormattingEnabled = true;
 			this->listBox4->ItemHeight = 33;
-			this->listBox4->Location = System::Drawing::Point(617, 131);
+			this->listBox4->Location = System::Drawing::Point(0, 0);
 			this->listBox4->Name = L"listBox4";
-			this->listBox4->Size = System::Drawing::Size(196, 136);
+			this->listBox4->Size = System::Drawing::Size(191, 137);
 			this->listBox4->TabIndex = 7;
 			// 
 			// listBox3
 			// 
+			this->listBox3->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->listBox3->FormattingEnabled = true;
 			this->listBox3->ItemHeight = 33;
-			this->listBox3->Location = System::Drawing::Point(416, 131);
+			this->listBox3->Location = System::Drawing::Point(0, 0);
 			this->listBox3->Name = L"listBox3";
-			this->listBox3->Size = System::Drawing::Size(196, 136);
+			this->listBox3->Size = System::Drawing::Size(165, 137);
 			this->listBox3->TabIndex = 6;
 			// 
 			// listBox2
 			// 
+			this->listBox2->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->listBox2->FormattingEnabled = true;
 			this->listBox2->ItemHeight = 33;
-			this->listBox2->Location = System::Drawing::Point(214, 131);
+			this->listBox2->Location = System::Drawing::Point(0, 0);
 			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(196, 136);
+			this->listBox2->Size = System::Drawing::Size(195, 137);
 			this->listBox2->TabIndex = 5;
 			// 
 			// listBox1
 			// 
+			this->listBox1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->listBox1->FormattingEnabled = true;
 			this->listBox1->ItemHeight = 33;
-			this->listBox1->Location = System::Drawing::Point(12, 131);
+			this->listBox1->Location = System::Drawing::Point(0, 0);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(196, 136);
+			this->listBox1->Size = System::Drawing::Size(238, 137);
 			this->listBox1->TabIndex = 4;
 			// 
 			// btnProcesarFrecuencias
@@ -395,6 +414,59 @@ namespace AlgoritmodeHuffman {
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Archivo a descomprimir:";
 			// 
+			// splitContainer1
+			// 
+			this->splitContainer1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->splitContainer1->Location = System::Drawing::Point(0, 0);
+			this->splitContainer1->Name = L"splitContainer1";
+			// 
+			// splitContainer1.Panel1
+			// 
+			this->splitContainer1->Panel1->Controls->Add(this->listBox1);
+			// 
+			// splitContainer1.Panel2
+			// 
+			this->splitContainer1->Panel2->Controls->Add(this->listBox2);
+			this->splitContainer1->Size = System::Drawing::Size(437, 137);
+			this->splitContainer1->SplitterDistance = 238;
+			this->splitContainer1->TabIndex = 10;
+			// 
+			// splitContainer2
+			// 
+			this->splitContainer2->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->splitContainer2->Location = System::Drawing::Point(0, 0);
+			this->splitContainer2->Name = L"splitContainer2";
+			// 
+			// splitContainer2.Panel1
+			// 
+			this->splitContainer2->Panel1->Controls->Add(this->listBox3);
+			// 
+			// splitContainer2.Panel2
+			// 
+			this->splitContainer2->Panel2->Controls->Add(this->listBox4);
+			this->splitContainer2->Size = System::Drawing::Size(360, 137);
+			this->splitContainer2->SplitterDistance = 165;
+			this->splitContainer2->TabIndex = 11;
+			// 
+			// splitContainer3
+			// 
+			this->splitContainer3->AllowDrop = true;
+			this->splitContainer3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->splitContainer3->Location = System::Drawing::Point(12, 131);
+			this->splitContainer3->Name = L"splitContainer3";
+			// 
+			// splitContainer3.Panel1
+			// 
+			this->splitContainer3->Panel1->Controls->Add(this->splitContainer1);
+			// 
+			// splitContainer3.Panel2
+			// 
+			this->splitContainer3->Panel2->Controls->Add(this->splitContainer2);
+			this->splitContainer3->Size = System::Drawing::Size(801, 137);
+			this->splitContainer3->SplitterDistance = 437;
+			this->splitContainer3->TabIndex = 12;
+			// 
 			// Formulario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -410,6 +482,18 @@ namespace AlgoritmodeHuffman {
 			this->tabPage1->PerformLayout();
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
+			this->splitContainer1->Panel1->ResumeLayout(false);
+			this->splitContainer1->Panel2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->EndInit();
+			this->splitContainer1->ResumeLayout(false);
+			this->splitContainer2->Panel1->ResumeLayout(false);
+			this->splitContainer2->Panel2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer2))->EndInit();
+			this->splitContainer2->ResumeLayout(false);
+			this->splitContainer3->Panel1->ResumeLayout(false);
+			this->splitContainer3->Panel2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer3))->EndInit();
+			this->splitContainer3->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -445,13 +529,39 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void btnProcesarFrecuencias_Click(System::Object^  sender, System::EventArgs^  e) {
 	msclr::interop::marshal_context context;
-	string ruta = context.marshal_as<string>(tbRutaDesencriptar->Text);
+	string ruta = context.marshal_as<string>(tbRutaEncriptar->Text);
 	vcS resultado = oHuffman->ProcesarFrecuencias(ruta);
 	oHuffman->listoParaComprimir = true;
+	int valores = resultado.size() / 4;
+	int sz = resultado.size();
+	for (int i = 0; i < sz; i++)
+	{
+		if (i < valores){
+			listBox1->Items->Add(context.marshal_as<String^>(resultado.back()));
+		}
+		else if (i < valores * 2){
+			listBox2->Items->Add(context.marshal_as<String^>(resultado.back()));
+		}
+		else if (i < valores * 3){
+			listBox3->Items->Add(context.marshal_as<String^>(resultado.back()));
+		}
+		else {
+			listBox4->Items->Add(context.marshal_as<String^>(resultado.back()));
+		}
+		resultado.pop_back();
+	}
+	
 }
 private: System::Void btnCodificar_Click(System::Object^  sender, System::EventArgs^  e) {
 	//comprimir crear archivo comprimido
+	msclr::interop::marshal_context context;
 	vcS resultado = oHuffman->Comprimir();
+	int sz = (int)resultado.size();
+	for (int i = 0; i < sz; i++)
+	{
+		listBox5->Items->Add(context.marshal_as<String^>(resultado.back()));		
+		resultado.pop_back();
+	}
 }
 
 
