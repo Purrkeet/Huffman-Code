@@ -49,7 +49,7 @@ public:
 	~Huffman()
 	{
 	}
-
+private:
 	bool compare(Sc a, Sc b){
 		//if(a.first.compare(b.first) == 0)
 		//	return ;
@@ -141,7 +141,7 @@ public:
 
 	}
 
-
+	public:
 	vcS ProcesarFrecuencias(string _archivo){
 
 		archivo = _archivo;
@@ -175,7 +175,7 @@ public:
 		ColaPrioridad = cola();
 		return OrdenaFrecuencias(ColaPrioridad);
 	}
-
+	private:
 	vcS OrdenaFrecuencias(cola &ColaPrioridad){
 		vcS resultado = vcS();
 		resultado.push_back(string("Frecuencias:\n "));
@@ -203,10 +203,9 @@ public:
 		//cout << endl;
 		return resultado;
 	}
+	public:
 	vcS Comprimir(){
-		//borrar despues
-		listoParaComprimir = true;
-
+	
 		vcS resultado = vcS();
 		if (listoParaComprimir){
 			//2) Procesar arbol

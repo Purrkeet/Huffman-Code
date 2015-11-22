@@ -1,5 +1,6 @@
 #pragma once
-
+#include "Huffman.h"
+#include <msclr\marshal_cppstd.h>
 namespace AlgoritmodeHuffman {
 
 	using namespace System;
@@ -15,6 +16,7 @@ namespace AlgoritmodeHuffman {
 	public ref class Formulario : public System::Windows::Forms::Form
 	{
 	public:
+		Huffman *oHuffman;
 		Formulario(void)
 		{
 			InitializeComponent();
@@ -22,6 +24,7 @@ namespace AlgoritmodeHuffman {
 			//TODO: agregar código de constructor aquí
 			// Limpiar listBoxes
 			LimpiarTodo();
+			oHuffman = new Huffman();
 		}
 		void LimpiarTodo(){
 			listBox1->Items->Clear();
@@ -236,6 +239,7 @@ namespace AlgoritmodeHuffman {
 			this->btnCodificar->TabIndex = 8;
 			this->btnCodificar->Text = L"Codificar/Crear Archivo";
 			this->btnCodificar->UseVisualStyleBackColor = true;
+			this->btnCodificar->Click += gcnew System::EventHandler(this, &Formulario::btnCodificar_Click);
 			// 
 			// listBox4
 			// 
@@ -281,6 +285,7 @@ namespace AlgoritmodeHuffman {
 			this->btnProcesarFrecuencias->TabIndex = 3;
 			this->btnProcesarFrecuencias->Text = L"Procesar Frecuencias";
 			this->btnProcesarFrecuencias->UseVisualStyleBackColor = true;
+			this->btnProcesarFrecuencias->Click += gcnew System::EventHandler(this, &Formulario::btnProcesarFrecuencias_Click);
 			// 
 			// button2
 			// 
@@ -358,6 +363,7 @@ namespace AlgoritmodeHuffman {
 			this->btnDescomprimir->TabIndex = 6;
 			this->btnDescomprimir->Text = L"Descomprimir";
 			this->btnDescomprimir->UseVisualStyleBackColor = true;
+			this->btnDescomprimir->Click += gcnew System::EventHandler(this, &Formulario::btnDescomprimir_Click);
 			// 
 			// button5
 			// 
@@ -423,6 +429,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK){
 		tbRutaEncriptar->Text = openFileDialog1->FileName;
 	}
+	oHuffman->listoParaComprimir = false;
 }
 private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
 	//filtrando txt
@@ -435,6 +442,27 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 	Close();
+}
+private: System::Void btnProcesarFrecuencias_Click(System::Object^  sender, System::EventArgs^  e) {
+	msclr::interop::marshal_context context;
+	string ruta = context.marshal_as<string>(tbRutaDesencriptar->Text);
+	vcS resultado = oHuffman->ProcesarFrecuencias(ruta);
+	oHuffman->listoParaComprimir = true;
+}
+private: System::Void btnCodificar_Click(System::Object^  sender, System::EventArgs^  e) {
+	//comprimir crear archivo comprimido
+	vcS resultado = oHuffman->Comprimir();
+}
+
+
+		 //ELVIS
+private: System::Void btnDescomprimir_Click(System::Object^  sender, System::EventArgs^  e) {
+	msclr::interop::marshal_context context;
+	string ruta = context.marshal_as<string>(tbRutaDesencriptar->Text);
+	vcS resultado = oHuffman->Descomprimir(ruta);
+	//muestra lista de frecuencias en una lista
+
+	//el ultimo elemento del vector es el texto descomprimido que se muestra en el tbResultado
 }
 };
 }
