@@ -89,12 +89,16 @@ public:
 	void recorreInOrder(Nodo * n, bool esDerecha, int idx){
 		if (n == nullptr) return;
 
-		if (esDerecha) valores[idx] = '0';
+		if (esDerecha)
+			valores[idx] = '0';
 		else
 			valores[idx] = '1';
 
 		Nodo*Izq = n->getIzquierda1();
 		Nodo*Der = n->getDerecha0();
+		if (Izq == nullptr && Der == nullptr){
+			codHuff.push_back(Sc(valores, n->getChar()));
+		}
 		if (Izq != nullptr){
 			if (Izq->getChar() == '\0')
 				recorreInOrder(Izq, false, idx + 1);
@@ -137,6 +141,7 @@ public:
 
 	}
 
+
 	vcS ProcesarFrecuencias(string _archivo){
 
 		archivo = _archivo;
@@ -146,14 +151,22 @@ public:
 		memset(frec, 0, sizeof(frec)); //INICIO FRECUENCIAS CON 0
 
 		string read;
+		bool first = true;
 		while (getline(input, read)){
 			//por cada linea procesar cada caracter ASCII 255
+			if (first){
+
+				first = false;
+			}
+			else{
+				frec[SALTOLINEA]++; //almacenar frec salto de linea que no se lee porque el getline se lo come.	
+			}
 			for (int i = 0; i < (int)read.size(); i++) //leer hasta salto de linea
 			{
 				if ((int)read[i]<0)  continue;//omitir caracteres que no son ASCII
 				frec[(int)read[i]]++;
 			}
-			frec[SALTOLINEA]++; //almacenar frec salto de linea que no se lee porque el getline se lo come.
+
 
 
 		}
@@ -179,11 +192,14 @@ public:
 			}
 
 		}
-		//salto de linea
-		stringstream ss;
-		ss << "Salto de Línea: " << frec[SALTOLINEA];
-		resultado.push_back(ss.str());
-		ColaPrioridad.push(iN(frec[SALTOLINEA], new Nodo(ic(frec[SALTOLINEA], '\n'))));
+		
+		if (frec[SALTOLINEA] != 0){
+			//salto de linea
+			stringstream ss;
+			ss << "Salto de Línea: " << frec[SALTOLINEA];
+			resultado.push_back(ss.str());
+			ColaPrioridad.push(iN(frec[SALTOLINEA], new Nodo(ic(frec[SALTOLINEA], '\n'))));
+		}
 		//cout << endl;
 		return resultado;
 	}
