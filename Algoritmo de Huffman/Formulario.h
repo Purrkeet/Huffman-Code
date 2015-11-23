@@ -571,8 +571,12 @@ private: System::Void btnDescomprimir_Click(System::Object^  sender, System::Eve
 	string ruta = context.marshal_as<string>(tbRutaDesencriptar->Text);
 	vcS resultado = oHuffman->Descomprimir(ruta);
 	//muestra lista de frecuencias en una lista
-
+	for (int i = 0; i < (int)resultado.size()-1; i++)
+	{
+		listBox6->Items->Add(context.marshal_as<String^>(resultado[i]));
+	}
 	//el ultimo elemento del vector es el texto descomprimido que se muestra en el tbResultado
+	tbResultado->Text = context.marshal_as<String^>(resultado.back());
 }
 };
 }
