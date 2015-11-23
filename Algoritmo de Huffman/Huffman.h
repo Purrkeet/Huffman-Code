@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-
+#include "ConverterBinario.h"
 #include <vector>
 #include <queue>
 #include <functional>
@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <map>
 #include "nodo.h"
+
 
 using namespace std;
 #define SALTOLINEA 257
@@ -224,8 +225,12 @@ private:
 				resultado.push_back(ss.str());
 			}
 
+			char RUTA_ARCHIVO_TEMPORAL[200] = "";
+			strcat(RUTA_ARCHIVO_TEMPORAL, getenv("APPDATA"));
+			strcat(RUTA_ARCHIVO_TEMPORAL, "\\archivoTemporal");
+
 			//inicio de codificacion. 
-			ofstream out("comprimido.txt", ofstream::out);
+			ofstream out(RUTA_ARCHIVO_TEMPORAL, ofstream::out);
 			ifstream input(archivo.c_str(), ifstream::in);
 			//5)escribir cabecera del nuevo archivo
 			for (int i = 0; i < (int)codHuffpConsultas.size(); i++) {
@@ -275,19 +280,19 @@ private:
 		//para obtener la equivalencia del codigo en O(log(n))
 		map<string, char> DecodeHuffman;
 		std::map<string, char>::iterator it;
-		input.open(archivo.c_str(), ifstream::in);
-		/*
-		FILE* archivoBinario = fopen("archivoHuffman.txt", "rb");
-		int letra;
-		short longitud;
-		int indice = 1;
-		fseek(archivoBinario, 0, SEEK_SET);
-*/
+
+		char RUTA_ARCHIVO_TEMPORAL[200] = "";
+		strcat(RUTA_ARCHIVO_TEMPORAL, getenv("APPDATA"));
+		strcat(RUTA_ARCHIVO_TEMPORAL, "\\archivoTemporal");
+
+		input.open(RUTA_ARCHIVO_TEMPORAL, ifstream::in);
+
 		string read_cod;
 		int read_ch;
 		resultado.push_back("Códigos Huffman de los caractéres:");
 		for (int i = 0; i < 258; i++) {
 			input >> read_ch >> read_cod;			
+			
 			
 			if (read_cod == "-") continue;
 			//cout << (char)read_ch << ": " << read_cod << endl;

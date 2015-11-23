@@ -6,7 +6,7 @@ ConverterBinario::ConverterBinario()
 {}
 ConverterBinario::ConverterBinario(char* ruta_archivo)
 {
-	this->ruta_archivo = ruta_archivo;
+	strcpy(this->rutaArchivo, ruta_archivo);
 }
 ConverterBinario::~ConverterBinario()
 {}
@@ -154,8 +154,8 @@ void ConverterBinario::leerToken()
 
 void ConverterBinario::Convertir_Texto_Binario()
 {
-	archivoTexto = fopen(ruta_archivo, "rt");
-	archivoBinario = fopen("archivoHuffman.txt", "wb");
+	archivoTexto = fopen(rutaArchivo, "rt");
+	archivoBinario = fopen(OUTPUT_ARCHIVO, "wb");
 
 	guardarToken();
 	guardarContenido();
@@ -165,7 +165,7 @@ void ConverterBinario::Convertir_Texto_Binario()
 }
 void ConverterBinario::leerArchivoBinario()
 {
-	archivoBinario = fopen("archivoHuffman.txt", "rb");
+	archivoBinario = fopen(OUTPUT_ARCHIVO, "rb");
 
 	leerToken();
 	leerContenido();

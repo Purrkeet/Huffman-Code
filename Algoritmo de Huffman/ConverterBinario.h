@@ -3,9 +3,10 @@
 #include <iostream>
 
 using namespace std;
+using namespace System::IO;
 
 #define MAX 200
-
+#define OUTPUT_ARCHIVO "ARCHIVO_COMPRIMIDO_ALG_HUFFMAN.txt"
 
 struct TBITS{
 	unsigned char b1 : 1;
@@ -85,13 +86,13 @@ struct TBITS{
 	}
 };
 
-ref class ConverterBinario
+class ConverterBinario
 {
 private:
 	FILE* archivoTexto;
 	FILE* archivoBinario;
 	
-	char* ruta_archivo;
+	char rutaArchivo[MAX];
 
 	TBITS* convertir_arraybits_bytes(short longitud, char* arraybits, TBITS* bytes);
 	void _guardarFilaToken(FILE* archivoBinario, int letra, char* arraybits);

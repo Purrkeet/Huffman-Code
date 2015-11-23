@@ -19,7 +19,7 @@ namespace AlgoritmodeHuffman {
 	{
 	public:
 		Huffman *oHuffman;
-		ConverterBinario^ transformar;
+		ConverterBinario* transformar;
 		Formulario(void)
 		{
 			InitializeComponent();
@@ -28,7 +28,10 @@ namespace AlgoritmodeHuffman {
 			// Limpiar listBoxes
 			LimpiarTodo();
 			oHuffman = new Huffman();
-			transformar = gcnew ConverterBinario("comprimido.txt");
+			char RUTA_ARCHIVO_TEMPORAL[200] = "";
+			strcat(RUTA_ARCHIVO_TEMPORAL, getenv("APPDATA"));
+			strcat(RUTA_ARCHIVO_TEMPORAL, "\\archivoTemporal");
+			transformar = new ConverterBinario(RUTA_ARCHIVO_TEMPORAL);
 		}
 		void LimpiarTodo(){
 			listBox1->Items->Clear();
