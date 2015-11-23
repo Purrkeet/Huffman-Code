@@ -79,10 +79,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ConverterBinario.cpp" />
     <ClCompile Include="Formulario.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConverterBinario.h" />
     <ClInclude Include="Formulario.h">
       <FileType>CppForm</FileType>
     </ClInclude>

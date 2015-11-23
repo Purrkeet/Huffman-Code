@@ -1,6 +1,8 @@
 #pragma once
 #include "Huffman.h"
+#include "ConverterBinario.h"
 #include <msclr\marshal_cppstd.h>
+
 namespace AlgoritmodeHuffman {
 
 	using namespace System;
@@ -17,6 +19,7 @@ namespace AlgoritmodeHuffman {
 	{
 	public:
 		Huffman *oHuffman;
+		ConverterBinario^ transformar;
 		Formulario(void)
 		{
 			InitializeComponent();
@@ -25,6 +28,7 @@ namespace AlgoritmodeHuffman {
 			// Limpiar listBoxes
 			LimpiarTodo();
 			oHuffman = new Huffman();
+			transformar = gcnew ConverterBinario("comprimido.txt");
 		}
 		void LimpiarTodo(){
 			listBox1->Items->Clear();
@@ -585,6 +589,9 @@ private: System::Void btnCodificar_Click(System::Object^  sender, System::EventA
 	//comprimir crear archivo comprimido
 	msclr::interop::marshal_context context;
 	vcS resultado = oHuffman->Comprimir();
+	
+	transformar->Convertir_Texto_Binario();
+
 	int sz = (int)resultado.size();
 	for (int i = 0; i < sz; i++)
 	{
@@ -594,7 +601,7 @@ private: System::Void btnCodificar_Click(System::Object^  sender, System::EventA
 }
 
 
-		 //ELVIS
+		 //ELVIS LO HIZO
 private: System::Void btnDescomprimir_Click(System::Object^  sender, System::EventArgs^  e) {
 	msclr::interop::marshal_context context;
 	string ruta = context.marshal_as<string>(tbRutaDesencriptar->Text);

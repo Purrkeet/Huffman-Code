@@ -276,17 +276,24 @@ private:
 		map<string, char> DecodeHuffman;
 		std::map<string, char>::iterator it;
 		input.open(archivo.c_str(), ifstream::in);
-
-
+		/*
+		FILE* archivoBinario = fopen("archivoHuffman.txt", "rb");
+		int letra;
+		short longitud;
+		int indice = 1;
+		fseek(archivoBinario, 0, SEEK_SET);
+*/
 		string read_cod;
 		int read_ch;
 		resultado.push_back("Códigos Huffman de los caractéres:");
 		for (int i = 0; i < 258; i++) {
-			input >> read_ch >> read_cod;
+			input >> read_ch >> read_cod;			
+			
 			if (read_cod == "-") continue;
 			//cout << (char)read_ch << ": " << read_cod << endl;
 			stringstream ss;
-			string charr = ""; charr += (char)read_ch;
+			string charr = ""; 
+			charr += (char)read_ch;
 			ss << ((char)read_ch == '\n' ? "Salto Línea" : ((char)read_ch == ' ' ? "Espacio" : charr)) << ": " << read_cod;
 			resultado.push_back(ss.str());
 			DecodeHuffman.insert(Sc(read_cod, (char)read_ch));
