@@ -120,12 +120,15 @@ namespace AlgoritmodeHuffman {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->splitContainer3 = (gcnew System::Windows::Forms::SplitContainer());
+			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
+			this->listBox2 = (gcnew System::Windows::Forms::ListBox());
+			this->splitContainer2 = (gcnew System::Windows::Forms::SplitContainer());
+			this->listBox3 = (gcnew System::Windows::Forms::ListBox());
+			this->listBox4 = (gcnew System::Windows::Forms::ListBox());
 			this->listBox5 = (gcnew System::Windows::Forms::ListBox());
 			this->btnCodificar = (gcnew System::Windows::Forms::Button());
-			this->listBox4 = (gcnew System::Windows::Forms::ListBox());
-			this->listBox3 = (gcnew System::Windows::Forms::ListBox());
-			this->listBox2 = (gcnew System::Windows::Forms::ListBox());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->btnProcesarFrecuencias = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->tbRutaEncriptar = (gcnew System::Windows::Forms::TextBox());
@@ -137,13 +140,13 @@ namespace AlgoritmodeHuffman {
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->tbRutaDesencriptar = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
-			this->splitContainer2 = (gcnew System::Windows::Forms::SplitContainer());
-			this->splitContainer3 = (gcnew System::Windows::Forms::SplitContainer());
 			this->panel1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
-			this->tabPage2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer3))->BeginInit();
+			this->splitContainer3->Panel1->SuspendLayout();
+			this->splitContainer3->Panel2->SuspendLayout();
+			this->splitContainer3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
 			this->splitContainer1->Panel1->SuspendLayout();
 			this->splitContainer1->Panel2->SuspendLayout();
@@ -152,10 +155,7 @@ namespace AlgoritmodeHuffman {
 			this->splitContainer2->Panel1->SuspendLayout();
 			this->splitContainer2->Panel2->SuspendLayout();
 			this->splitContainer2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer3))->BeginInit();
-			this->splitContainer3->Panel1->SuspendLayout();
-			this->splitContainer3->Panel2->SuspendLayout();
-			this->splitContainer3->SuspendLayout();
+			this->tabPage2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// openFileDialog1
@@ -167,13 +167,13 @@ namespace AlgoritmodeHuffman {
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox1->Dock = System::Windows::Forms::DockStyle::Top;
 			this->textBox1->Enabled = false;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox1->ForeColor = System::Drawing::SystemColors::MenuText;
 			this->textBox1->Location = System::Drawing::Point(0, 0);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(851, 37);
+			this->textBox1->Size = System::Drawing::Size(851, 28);
 			this->textBox1->TabIndex = 1;
 			this->textBox1->Text = L"Algoritmo de Compresión de Datos";
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -181,7 +181,7 @@ namespace AlgoritmodeHuffman {
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->button1->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->Location = System::Drawing::Point(738, 501);
 			this->button1->Name = L"button1";
@@ -197,6 +197,8 @@ namespace AlgoritmodeHuffman {
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel1->Controls->Add(this->tabControl1);
+			this->panel1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->panel1->Location = System::Drawing::Point(12, 50);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(827, 441);
@@ -208,7 +210,7 @@ namespace AlgoritmodeHuffman {
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tabControl1->Location = System::Drawing::Point(0, 0);
 			this->tabControl1->Name = L"tabControl1";
@@ -226,193 +228,34 @@ namespace AlgoritmodeHuffman {
 			this->tabPage1->Controls->Add(this->button2);
 			this->tabPage1->Controls->Add(this->tbRutaEncriptar);
 			this->tabPage1->Controls->Add(this->label1);
-			this->tabPage1->Location = System::Drawing::Point(4, 42);
+			this->tabPage1->Location = System::Drawing::Point(4, 34);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(819, 395);
+			this->tabPage1->Size = System::Drawing::Size(819, 403);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Comprimir";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
-			// listBox5
+			// splitContainer3
 			// 
-			this->listBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
+			this->splitContainer3->AllowDrop = true;
+			this->splitContainer3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->listBox5->FormattingEnabled = true;
-			this->listBox5->ItemHeight = 33;
-			this->listBox5->Location = System::Drawing::Point(12, 319);
-			this->listBox5->Name = L"listBox5";
-			this->listBox5->Size = System::Drawing::Size(801, 70);
-			this->listBox5->TabIndex = 9;
+			this->splitContainer3->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->splitContainer3->Location = System::Drawing::Point(12, 131);
+			this->splitContainer3->Name = L"splitContainer3";
 			// 
-			// btnCodificar
+			// splitContainer3.Panel1
 			// 
-			this->btnCodificar->Location = System::Drawing::Point(12, 274);
-			this->btnCodificar->Name = L"btnCodificar";
-			this->btnCodificar->Size = System::Drawing::Size(322, 38);
-			this->btnCodificar->TabIndex = 8;
-			this->btnCodificar->Text = L"Codificar/Crear Archivo";
-			this->btnCodificar->UseVisualStyleBackColor = true;
-			this->btnCodificar->Click += gcnew System::EventHandler(this, &Formulario::btnCodificar_Click);
+			this->splitContainer3->Panel1->Controls->Add(this->splitContainer1);
 			// 
-			// listBox4
+			// splitContainer3.Panel2
 			// 
-			this->listBox4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->listBox4->FormattingEnabled = true;
-			this->listBox4->ItemHeight = 33;
-			this->listBox4->Location = System::Drawing::Point(0, 0);
-			this->listBox4->Name = L"listBox4";
-			this->listBox4->Size = System::Drawing::Size(191, 137);
-			this->listBox4->TabIndex = 7;
-			// 
-			// listBox3
-			// 
-			this->listBox3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->listBox3->FormattingEnabled = true;
-			this->listBox3->ItemHeight = 33;
-			this->listBox3->Location = System::Drawing::Point(0, 0);
-			this->listBox3->Name = L"listBox3";
-			this->listBox3->Size = System::Drawing::Size(165, 137);
-			this->listBox3->TabIndex = 6;
-			// 
-			// listBox2
-			// 
-			this->listBox2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->listBox2->FormattingEnabled = true;
-			this->listBox2->ItemHeight = 33;
-			this->listBox2->Location = System::Drawing::Point(0, 0);
-			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(195, 137);
-			this->listBox2->TabIndex = 5;
-			// 
-			// listBox1
-			// 
-			this->listBox1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->ItemHeight = 33;
-			this->listBox1->Location = System::Drawing::Point(0, 0);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(238, 137);
-			this->listBox1->TabIndex = 4;
-			// 
-			// btnProcesarFrecuencias
-			// 
-			this->btnProcesarFrecuencias->Location = System::Drawing::Point(12, 86);
-			this->btnProcesarFrecuencias->Name = L"btnProcesarFrecuencias";
-			this->btnProcesarFrecuencias->Size = System::Drawing::Size(322, 39);
-			this->btnProcesarFrecuencias->TabIndex = 3;
-			this->btnProcesarFrecuencias->Text = L"Procesar Frecuencias";
-			this->btnProcesarFrecuencias->UseVisualStyleBackColor = true;
-			this->btnProcesarFrecuencias->Click += gcnew System::EventHandler(this, &Formulario::btnProcesarFrecuencias_Click);
-			// 
-			// button2
-			// 
-			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->button2->Location = System::Drawing::Point(663, 39);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(150, 41);
-			this->button2->TabIndex = 2;
-			this->button2->Text = L"&Buscar";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &Formulario::button2_Click);
-			// 
-			// tbRutaEncriptar
-			// 
-			this->tbRutaEncriptar->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->tbRutaEncriptar->Location = System::Drawing::Point(12, 39);
-			this->tbRutaEncriptar->Name = L"tbRutaEncriptar";
-			this->tbRutaEncriptar->ReadOnly = true;
-			this->tbRutaEncriptar->Size = System::Drawing::Size(644, 41);
-			this->tbRutaEncriptar->TabIndex = 1;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(6, 3);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(231, 33);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Archivo a comprimir:";
-			// 
-			// tabPage2
-			// 
-			this->tabPage2->Controls->Add(this->tbResultado);
-			this->tabPage2->Controls->Add(this->listBox6);
-			this->tabPage2->Controls->Add(this->btnDescomprimir);
-			this->tabPage2->Controls->Add(this->button5);
-			this->tabPage2->Controls->Add(this->tbRutaDesencriptar);
-			this->tabPage2->Controls->Add(this->label2);
-			this->tabPage2->Location = System::Drawing::Point(4, 42);
-			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(819, 395);
-			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"Descomprimir";
-			this->tabPage2->UseVisualStyleBackColor = true;
-			// 
-			// tbResultado
-			// 
-			this->tbResultado->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->tbResultado->Location = System::Drawing::Point(315, 86);
-			this->tbResultado->Multiline = true;
-			this->tbResultado->Name = L"tbResultado";
-			this->tbResultado->Size = System::Drawing::Size(498, 281);
-			this->tbResultado->TabIndex = 8;
-			// 
-			// listBox6
-			// 
-			this->listBox6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left));
-			this->listBox6->FormattingEnabled = true;
-			this->listBox6->ItemHeight = 33;
-			this->listBox6->Location = System::Drawing::Point(12, 132);
-			this->listBox6->Name = L"listBox6";
-			this->listBox6->Size = System::Drawing::Size(282, 235);
-			this->listBox6->TabIndex = 7;
-			// 
-			// btnDescomprimir
-			// 
-			this->btnDescomprimir->Location = System::Drawing::Point(12, 86);
-			this->btnDescomprimir->Name = L"btnDescomprimir";
-			this->btnDescomprimir->Size = System::Drawing::Size(282, 39);
-			this->btnDescomprimir->TabIndex = 6;
-			this->btnDescomprimir->Text = L"Descomprimir";
-			this->btnDescomprimir->UseVisualStyleBackColor = true;
-			this->btnDescomprimir->Click += gcnew System::EventHandler(this, &Formulario::btnDescomprimir_Click);
-			// 
-			// button5
-			// 
-			this->button5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->button5->Location = System::Drawing::Point(663, 39);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(150, 41);
-			this->button5->TabIndex = 5;
-			this->button5->Text = L"&Buscar";
-			this->button5->UseVisualStyleBackColor = true;
-			this->button5->Click += gcnew System::EventHandler(this, &Formulario::button5_Click);
-			// 
-			// tbRutaDesencriptar
-			// 
-			this->tbRutaDesencriptar->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->tbRutaDesencriptar->Location = System::Drawing::Point(12, 39);
-			this->tbRutaDesencriptar->Name = L"tbRutaDesencriptar";
-			this->tbRutaDesencriptar->ReadOnly = true;
-			this->tbRutaDesencriptar->Size = System::Drawing::Size(644, 41);
-			this->tbRutaDesencriptar->TabIndex = 4;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(6, 3);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(270, 33);
-			this->label2->TabIndex = 3;
-			this->label2->Text = L"Archivo a descomprimir:";
+			this->splitContainer3->Panel2->Controls->Add(this->splitContainer2);
+			this->splitContainer3->Size = System::Drawing::Size(801, 137);
+			this->splitContainer3->SplitterDistance = 437;
+			this->splitContainer3->TabIndex = 12;
 			// 
 			// splitContainer1
 			// 
@@ -431,6 +274,26 @@ namespace AlgoritmodeHuffman {
 			this->splitContainer1->SplitterDistance = 238;
 			this->splitContainer1->TabIndex = 10;
 			// 
+			// listBox1
+			// 
+			this->listBox1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->listBox1->FormattingEnabled = true;
+			this->listBox1->ItemHeight = 20;
+			this->listBox1->Location = System::Drawing::Point(0, 0);
+			this->listBox1->Name = L"listBox1";
+			this->listBox1->Size = System::Drawing::Size(238, 137);
+			this->listBox1->TabIndex = 4;
+			// 
+			// listBox2
+			// 
+			this->listBox2->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->listBox2->FormattingEnabled = true;
+			this->listBox2->ItemHeight = 20;
+			this->listBox2->Location = System::Drawing::Point(0, 0);
+			this->listBox2->Name = L"listBox2";
+			this->listBox2->Size = System::Drawing::Size(195, 137);
+			this->listBox2->TabIndex = 5;
+			// 
 			// splitContainer2
 			// 
 			this->splitContainer2->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -448,24 +311,189 @@ namespace AlgoritmodeHuffman {
 			this->splitContainer2->SplitterDistance = 165;
 			this->splitContainer2->TabIndex = 11;
 			// 
-			// splitContainer3
+			// listBox3
 			// 
-			this->splitContainer3->AllowDrop = true;
-			this->splitContainer3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->listBox3->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->listBox3->FormattingEnabled = true;
+			this->listBox3->ItemHeight = 20;
+			this->listBox3->Location = System::Drawing::Point(0, 0);
+			this->listBox3->Name = L"listBox3";
+			this->listBox3->Size = System::Drawing::Size(165, 137);
+			this->listBox3->TabIndex = 6;
+			// 
+			// listBox4
+			// 
+			this->listBox4->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->listBox4->FormattingEnabled = true;
+			this->listBox4->ItemHeight = 20;
+			this->listBox4->Location = System::Drawing::Point(0, 0);
+			this->listBox4->Name = L"listBox4";
+			this->listBox4->Size = System::Drawing::Size(191, 137);
+			this->listBox4->TabIndex = 7;
+			// 
+			// listBox5
+			// 
+			this->listBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->splitContainer3->Location = System::Drawing::Point(12, 131);
-			this->splitContainer3->Name = L"splitContainer3";
+			this->listBox5->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->listBox5->FormattingEnabled = true;
+			this->listBox5->ItemHeight = 20;
+			this->listBox5->Location = System::Drawing::Point(12, 319);
+			this->listBox5->Name = L"listBox5";
+			this->listBox5->Size = System::Drawing::Size(801, 64);
+			this->listBox5->TabIndex = 9;
 			// 
-			// splitContainer3.Panel1
+			// btnCodificar
 			// 
-			this->splitContainer3->Panel1->Controls->Add(this->splitContainer1);
+			this->btnCodificar->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnCodificar->Location = System::Drawing::Point(12, 275);
+			this->btnCodificar->Name = L"btnCodificar";
+			this->btnCodificar->Size = System::Drawing::Size(322, 38);
+			this->btnCodificar->TabIndex = 8;
+			this->btnCodificar->Text = L"Codificar/Crear Archivo";
+			this->btnCodificar->UseVisualStyleBackColor = true;
+			this->btnCodificar->Click += gcnew System::EventHandler(this, &Formulario::btnCodificar_Click);
 			// 
-			// splitContainer3.Panel2
+			// btnProcesarFrecuencias
 			// 
-			this->splitContainer3->Panel2->Controls->Add(this->splitContainer2);
-			this->splitContainer3->Size = System::Drawing::Size(801, 137);
-			this->splitContainer3->SplitterDistance = 437;
-			this->splitContainer3->TabIndex = 12;
+			this->btnProcesarFrecuencias->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnProcesarFrecuencias->Location = System::Drawing::Point(12, 86);
+			this->btnProcesarFrecuencias->Name = L"btnProcesarFrecuencias";
+			this->btnProcesarFrecuencias->Size = System::Drawing::Size(322, 39);
+			this->btnProcesarFrecuencias->TabIndex = 3;
+			this->btnProcesarFrecuencias->Text = L"Procesar Frecuencias";
+			this->btnProcesarFrecuencias->UseVisualStyleBackColor = true;
+			this->btnProcesarFrecuencias->Click += gcnew System::EventHandler(this, &Formulario::btnProcesarFrecuencias_Click);
+			// 
+			// button2
+			// 
+			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->button2->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->Location = System::Drawing::Point(663, 34);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(150, 36);
+			this->button2->TabIndex = 2;
+			this->button2->Text = L"&Buscar";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Formulario::button2_Click);
+			// 
+			// tbRutaEncriptar
+			// 
+			this->tbRutaEncriptar->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->tbRutaEncriptar->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tbRutaEncriptar->Location = System::Drawing::Point(12, 39);
+			this->tbRutaEncriptar->Name = L"tbRutaEncriptar";
+			this->tbRutaEncriptar->ReadOnly = true;
+			this->tbRutaEncriptar->Size = System::Drawing::Size(644, 26);
+			this->tbRutaEncriptar->TabIndex = 1;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(12, 3);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(150, 23);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"Archivo a comprimir:";
+			// 
+			// tabPage2
+			// 
+			this->tabPage2->Controls->Add(this->tbResultado);
+			this->tabPage2->Controls->Add(this->listBox6);
+			this->tabPage2->Controls->Add(this->btnDescomprimir);
+			this->tabPage2->Controls->Add(this->button5);
+			this->tabPage2->Controls->Add(this->tbRutaDesencriptar);
+			this->tabPage2->Controls->Add(this->label2);
+			this->tabPage2->Location = System::Drawing::Point(4, 34);
+			this->tabPage2->Name = L"tabPage2";
+			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage2->Size = System::Drawing::Size(819, 403);
+			this->tabPage2->TabIndex = 1;
+			this->tabPage2->Text = L"Descomprimir";
+			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// tbResultado
+			// 
+			this->tbResultado->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->tbResultado->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tbResultado->Location = System::Drawing::Point(315, 86);
+			this->tbResultado->Multiline = true;
+			this->tbResultado->Name = L"tbResultado";
+			this->tbResultado->Size = System::Drawing::Size(498, 289);
+			this->tbResultado->TabIndex = 8;
+			// 
+			// listBox6
+			// 
+			this->listBox6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left));
+			this->listBox6->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->listBox6->FormattingEnabled = true;
+			this->listBox6->ItemHeight = 20;
+			this->listBox6->Location = System::Drawing::Point(12, 132);
+			this->listBox6->Name = L"listBox6";
+			this->listBox6->Size = System::Drawing::Size(282, 244);
+			this->listBox6->TabIndex = 7;
+			// 
+			// btnDescomprimir
+			// 
+			this->btnDescomprimir->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnDescomprimir->Location = System::Drawing::Point(12, 86);
+			this->btnDescomprimir->Name = L"btnDescomprimir";
+			this->btnDescomprimir->Size = System::Drawing::Size(282, 39);
+			this->btnDescomprimir->TabIndex = 6;
+			this->btnDescomprimir->Text = L"Descomprimir";
+			this->btnDescomprimir->UseVisualStyleBackColor = true;
+			this->btnDescomprimir->Click += gcnew System::EventHandler(this, &Formulario::btnDescomprimir_Click);
+			// 
+			// button5
+			// 
+			this->button5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->button5->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button5->Location = System::Drawing::Point(663, 32);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(150, 41);
+			this->button5->TabIndex = 5;
+			this->button5->Text = L"&Buscar";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &Formulario::button5_Click);
+			// 
+			// tbRutaDesencriptar
+			// 
+			this->tbRutaDesencriptar->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->tbRutaDesencriptar->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tbRutaDesencriptar->Location = System::Drawing::Point(12, 39);
+			this->tbRutaDesencriptar->Name = L"tbRutaDesencriptar";
+			this->tbRutaDesencriptar->ReadOnly = true;
+			this->tbRutaDesencriptar->Size = System::Drawing::Size(644, 26);
+			this->tbRutaDesencriptar->TabIndex = 4;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(6, 3);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(176, 23);
+			this->label2->TabIndex = 3;
+			this->label2->Text = L"Archivo a descomprimir:";
 			// 
 			// Formulario
 			// 
@@ -476,12 +504,15 @@ namespace AlgoritmodeHuffman {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
 			this->Name = L"Formulario";
+			this->Text = L"Algoritmo de Huffman";
 			this->panel1->ResumeLayout(false);
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
-			this->tabPage2->ResumeLayout(false);
-			this->tabPage2->PerformLayout();
+			this->splitContainer3->Panel1->ResumeLayout(false);
+			this->splitContainer3->Panel2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer3))->EndInit();
+			this->splitContainer3->ResumeLayout(false);
 			this->splitContainer1->Panel1->ResumeLayout(false);
 			this->splitContainer1->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->EndInit();
@@ -490,10 +521,8 @@ namespace AlgoritmodeHuffman {
 			this->splitContainer2->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer2))->EndInit();
 			this->splitContainer2->ResumeLayout(false);
-			this->splitContainer3->Panel1->ResumeLayout(false);
-			this->splitContainer3->Panel2->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer3))->EndInit();
-			this->splitContainer3->ResumeLayout(false);
+			this->tabPage2->ResumeLayout(false);
+			this->tabPage2->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
